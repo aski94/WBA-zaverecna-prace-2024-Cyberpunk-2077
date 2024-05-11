@@ -177,6 +177,18 @@ main {
     position: relative;
 }
 
+.hidden {
+    transform: translateY(20%);
+    transition: transform 0.3s ease;
+}
+
+.show {
+    transform: translateY(0);
+    transition: transform 1.2s ease;
+    transition-delay: 50ms;
+   
+}
+
 .david {
     background-image: url(../Images/davidCard.png);
     align-self: flex-start;

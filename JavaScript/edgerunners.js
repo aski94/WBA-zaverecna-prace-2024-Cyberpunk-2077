@@ -6,9 +6,10 @@ const leftButton = document.getElementById("leftArrowHolder");
 const rightButton = document.getElementById("rightArrowHolder");
 const hiddenCards = document.querySelectorAll('.hidden');
 
+//zdroj: https://youtu.be/T33NN_pPeNI?si=s2N9ywY7nbkpKbMr https://chat.openai.com/share/02204a9d-9c25-4371-a5e9-66c11a19aee7
 const observerCallback = (entries, observer) => {
     entries.forEach((entry) => {
-        if(entry.isIntersecting) {
+        if (entry.isIntersecting) {
             entry.target.classList.add("show");
             observer.unobserve(entry.target);
         }
@@ -22,11 +23,10 @@ const observer = new IntersectionObserver(observerCallback);
 
 hiddenCards.forEach((card) => observer.observe(card));
 
-// Re-observe elements when user scrolls above them
 window.addEventListener('scroll', () => {
     hiddenCards.forEach((card) => {
         const rect = card.getBoundingClientRect();
-        if (rect.bottom > 0) { // Change the condition here
+        if (rect.bottom > 0) {
             observer.observe(card);
         }
     });
